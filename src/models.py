@@ -91,7 +91,8 @@ class FavoritePlanets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
     user_relationship = db.relationship('User', backref='favorite_planets')
-    planet_id = db.Column(db.Integer, db.ForeignKey('planets.planet_id'), nullable=False)  
+    planet_id = db.Column(db.Integer, db.ForeignKey('planets.id'), nullable=False)  
+
     planet_relationship = db.relationship('Planets', backref='favorite_planets')
 
     def __repr__(self):
@@ -109,7 +110,8 @@ class FavoriteCharacters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
     user_relationship = db.relationship('User', backref='favorite_characters')
-    character_id = db.Column(db.Integer, db.ForeignKey('characters.character_id'), nullable=False) 
+    character_id = db.Column(db.Integer, db.ForeignKey('characters.id'), nullable=False) 
+
     character_relationship = db.relationship('Characters', backref='favorite_characters')
 
     def __repr__(self):
@@ -128,7 +130,8 @@ class FavoriteVehicles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
     user_relationship = db.relationship('User', backref='favorite_vehicles')
-    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicles.vehicle_id'), nullable=False)  
+    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicles.id'), nullable=False)  
+    
     vehicle_relationship = db.relationship('Vehicles', backref='favorite_vehicles')
 
     def __repr__(self):
